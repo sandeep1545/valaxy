@@ -11,8 +11,8 @@ pool:
 
 steps:
 - script: |
-  cd /home/awsdemo/temp
-  mkdir temp1
+    cd /home/awsdemo/temp
+    mkdir temp1
   displayName: 'Run a one-line script'
 
 - script: |
