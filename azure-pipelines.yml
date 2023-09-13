@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: maanya
+  name: ubuntu_test
 
 steps:
 - script: |
