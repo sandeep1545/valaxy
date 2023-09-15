@@ -11,12 +11,9 @@ pool:
 
 steps:
 - script: |
-    mvn compile
-    mvn clean install
-- script: |
     sudo apt-get update
     sudo apt install docker.io -y
-    sudo usermod -aG docker 
+    sudo usermod -aG docker ubuntu
     newgrp docker
     docker run hello-world
   displayName: 'Run a one-line script'
