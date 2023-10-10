@@ -8,7 +8,7 @@ trigger:
 
 pool:
   #vmImage: ubuntu-latest
-  name: ubuntu_test
+  name: azureagentpool
 
 steps:
 - script: |
