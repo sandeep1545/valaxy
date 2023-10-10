@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  #vmImage: ubuntu-latest
+  name: azureagentpool
+
+steps:
+- script: |
+    sudo apt-get update
+    wget https://downloads.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
+    sudo tar xf apache-maven-3.8.8-bin.tar.gz -C /opt
+    cd /opt
+    sudo mv apache-maven-3.8.8/ apache-maven
+    sudo tee -a /etc/profile.d/maven.sh <<EOF
+    export M2_HOME=/opt/apache-maven
+    export MAVEN_HOME=/opt/apache-maven
+    export PATH=${M2_HOME}/bin:${PATH}
+    EOF
+    sudo chmod +x /etc/profile.d/maven.sh
+    source /etc/profile.d/maven.sh
+    mvn --version
+    sudo ln -s /opt/apache-maven/bin/mvn mvn
+  displayName: 'Install Maven '
