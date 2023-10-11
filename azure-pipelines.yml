@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: ubuntu_test
+  name: azureagentpool
 
 steps:
 - script: |
