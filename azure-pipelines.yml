@@ -10,5 +10,4 @@ pool:
   name: azureagentpool
 
 steps:
-- script: |
-    echo $hostname
+- script: 'echo $hostname'
